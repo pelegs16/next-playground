@@ -1,8 +1,12 @@
 function UsersSSR({ data }) {
   return (
     <div className="p-6 border border-amber-500">
-      Users page - SSR
 
+
+      <div className="flex items-center space-x-4">
+        <div>{data.results[0].name.first || '-'}</div>
+        <div className="text-xs font-medium">{data.results[0].gender || '-'}</div>
+      </div>
       <div>
         { !!data.length && data.map((user, i) => <div key={ i } className={ `p-5 ` }>
           <h1>{ user.name }</h1>
@@ -20,7 +24,7 @@ function UsersSSR({ data }) {
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch("https://jsonplaceholder.typicode.com/users")
+  const res = await fetch("https://randomuser.me/api/")
   const data = await res.json()
 
   // Pass data to the page via props
