@@ -19,17 +19,15 @@ const App = () => {
             <ul>
               <li>1 - entering dev tool <b>(`cmd` + `option` + `j`)</b></li>
               <li>2 - run command <b>(`cmd` + `shift` + `p`)</b></li>
-              <li>3 - when the dialog with the <b>`Run Command`</b> appear - type
-                <span className="">{`javascript`}</span> <br/> and choose <b> <span className="">Disable Javascript</span> (orange debugger)</b></li>
+              <li>3 - when the dialog with the <b>`Run Command`</b> appear - type javascript
+         and choose - Disable Javascript -(orange debugger)
+              </li>
             </ul>
-
-
           </p>
           <p>
             Once its done when you refresh the page - The html keep rendering.
             <br/>
             quite shitty. but it renders. wont happend with react
-
           </p>
         </div>
         <h1 className="font-bold text-xl py-2">Choose Users Page</h1>
