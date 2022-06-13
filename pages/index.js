@@ -14,7 +14,7 @@ const App = () => {
           <p>
             In order to see a proof for Pre-rendering - the easiest thing would be <b>to disable JavaScript</b>
           </p>
-          <p>
+          <div>
             this can be done quite fast by:
             <ul>
               <li>1 - entering dev tool <b>(`cmd` + `option` + `j`)</b></li>
@@ -23,7 +23,7 @@ const App = () => {
          and choose - Disable Javascript -(orange debugger)
               </li>
             </ul>
-          </p>
+          </div>
           <p>
             Once its done when you refresh the page - The html keep rendering.
             <br/>
