@@ -1,10 +1,9 @@
-
+import CodeBox from "/components/CodeBox";
+import RandomUser from "/components/RandomUser";
 
 export async function getStaticProps() {
-  const resp = await fetch(
-    "https://randomuser.me/api/"
-  );
-
+  const url = "https://randomuser.me/api/"
+  const resp = await fetch(url);
   return {
     props: {
       data: await resp.json(),
@@ -12,31 +11,30 @@ export async function getStaticProps() {
   };
 }
 
-
 const Users = ({ data }) => {
-
+  const user = data.results[0]
   return (
-    <div className="p-6 border border-amber-500">
-
-      Users SSG
-
-      <div className="flex items-center space-x-4">
-        <div>{data.results[0].name.first || '-'}</div>
-        <div className="text-xs font-medium">{data.results[0].gender || '-'}</div>
-      </div>
-      <div>
-        { !!data.length && data.map((user, i) => <div key={ i } className={ `p-5 ` }>
-          <h1>{ user.name }</h1>
-          <div>Address:</div>
-          <div className="p-6 bg-orange-100">{ Object.entries(user.address).map(([k, v]) => <div key={ k }
-                                                                                                 className="bg-emerald-100">
-            { k } - { JSON.stringify(v) }
-          </div>) }</div>
-        </div>) }
+    <div className="p-9 border  bg-gray-50 ">
+      <h1 className="font-bold text-xl py-2">Users SSG</h1>
+      <div>- This page using Static Generation for pre-rendering and data-fetching.</div>
+      <div className="flex flex-col space-y-6 pt-2">
+        <CodeBox>
+          { codeSSG }
+        </CodeBox>
+        <RandomUser user={ user } />
       </div>
     </div>
   )
 }
 
-
 export default Users
+
+const codeSSG = `export async function getStaticProps() {
+      const url = "https://randomuser.me/api/"
+      const resp = await fetch(url);
+      return {
+        props: {
+          data: await resp.json(),
+        },
+      }
+    }`

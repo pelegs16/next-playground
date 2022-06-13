@@ -1,37 +1,39 @@
-function UsersSSR({ data }) {
+import CodeBox from "/components/CodeBox";
+import RandomUser from "/components/RandomUser";
+
+const UsersSSR = ({ data }) => {
+  const user = data.results[0]
   return (
-    <div className="p-6 border border-amber-500">
-
-
-      <div className="flex items-center space-x-4">
-        <div>{data.results[0].name.first || '-'}</div>
-        <div className="text-xs font-medium">{data.results[0].gender || '-'}</div>
-      </div>
-      <div>
-        { !!data.length && data.map((user, i) => <div key={ i } className={ `p-5 ` }>
-          <h1>{ user.name }</h1>
-          <div>Address:</div>
-          <div className="p-6 bg-orange-100">{ Object.entries(user.address).map(([k, v]) => <div key={ k }
-                                                                                                 className="bg-emerald-100">
-            { k } - { JSON.stringify(v) }
-          </div>) }</div>
-        </div>) }
+    <div className="p-9 border  bg-gray-50 ">
+      <h1 className="font-bold text-xl py-2">Users SSR</h1>
+      <div>- This page using Server Side for pre-rendering and data-fetching.</div>
+      <div className="flex flex-col space-y-6 pt-2">
+        <CodeBox>
+          { codeSSG }
+        </CodeBox>
+        <RandomUser user={ user } />
       </div>
     </div>
   )
 }
 
-// This gets called on every request
+
 export async function getServerSideProps() {
+
+  const res = await fetch("https://randomuser.me/api/")
+  const data = await res.json()
+
+  return { props: { data } }
+}
+
+export default UsersSSR
+
+const codeSSG = `export async function getServerSideProps() {
   // Fetch data from external API
   const res = await fetch("https://randomuser.me/api/")
   const data = await res.json()
 
   // Pass data to the page via props
   return { props: { data } }
-}
-
-export default UsersSSR
-
-
+}`
 
