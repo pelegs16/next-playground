@@ -9,7 +9,7 @@ const App = () => {
         <title>Home</title>
       </Head>
       <div className="p-9 border  bg-gray-50 ">
-        <div className="w-full p-5 flex flex-col space-y-4">
+        <div className="w-full p-5 flex flex-col space-y-4 bg-gray-100 my-3">
           <h3>Pre Rendering</h3>
           <p>
             In order to see a proof for Pre-rendering - the easiest thing would be <b>to disable JavaScript</b>
@@ -30,14 +30,22 @@ const App = () => {
             quite shitty. but it renders. wont happend with react
           </p>
         </div>
-        <h1 className="font-bold text-xl py-2">Choose Users Page</h1>
-        <div className="flex-1 flex w-full p-12 space-x-8 justify-center items-center">
-          <Link href="/usersSSR">
-            <a className="text-indigo-600 border border-indigo-400 p-2 rounded">Users (SSR)</a>
-          </Link>
-          <Link href="/users">
-            <a className="text-indigo-600 border border-indigo-400 p-2 rounded">Users (SSG)</a>
-          </Link>
+        <div className="w-full p-5 flex flex-col space-y-4 bg-gray-100 my-3">
+          <h4 className="font-bold text-xl py-2">Choose a random User Page - SSG or SSR</h4>
+          <p>After routing to one of the pages - go back Home and then re-enter the page.
+
+          </p>
+          <p>
+            Do it with both pages to see the differences
+          </p>
+          <div className="flex-1 flex w-full p-12 space-x-8 justify-center items-center">
+            <Link href="/usersSSR">
+              <a className="text-indigo-600 border border-indigo-400 p-2 rounded">Users (SSR)</a>
+            </Link>
+            <Link href="/users">
+              <a className="text-indigo-600 border border-indigo-400 p-2 rounded">Users (SSG)</a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
