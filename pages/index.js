@@ -1,12 +1,16 @@
 
 import Box from "/components/Box";
 import Link from "next/link";
+import Head from "next/head";
 
 
 const App =  ({data}) => {
 
   return (
     <div className="min-h-screen relative bg-gray-300 p-12">
+      <Head>
+        <title>Home</title>
+      </Head>
       <div  className="h-full relative m-auto  bg-emerald-50 border border-emerald-800 rounded">
         <h2 className="text-center p-5">Choose Users Page</h2>
         <div className="flex-1 flex w-full p-12 space-x-8 justify-center items-center bg-emerald-100">
