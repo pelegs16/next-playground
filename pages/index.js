@@ -65,11 +65,11 @@ const App = () => {
                     Generation</a>.</p></blockquote>
 
                 <div>
-                  enter:
+                  enter: 
 
-                  <div>
+                  <a href="https://next-playground-rust.vercel.app/" target="_blank">
                     https://next-playground-rust.vercel.app/
-                  </div>
+                  </a>
                   <div>and see in live</div>
                 </div>
 
